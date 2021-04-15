@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/tts_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="264dp"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/clockButton" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_speak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
