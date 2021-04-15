@@ -14,6 +14,7 @@ import java.util.logging.Logger
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var editText:EditText?=null
     private var buttonSpeak:Button?= null
+    private var clockButton:Button?= null
     private var tts:TextToSpeech?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,11 +23,15 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         buttonSpeak = this.findViewById(R.id.button_speak)
         editText=this.findViewById(R.id.tts_input)
+        clockButton=this.findViewById(R.id.clockButton)
         buttonSpeak!!.isEnabled = false;
         tts = TextToSpeech(this,this)
 
         buttonSpeak!!.setOnClickListener{
             readText()
+        }
+        clockButton!!.setOnClickListener{
+            whatTime()
         }
     }
 
@@ -58,6 +63,14 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
         super.onDestroy()
     }
+
+    private fun whatTime(){
+        var h:Int = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+        var m:Int = Calendar.getInstance().get(Calendar.MINUTE)
+        val time = "Il est $h heure $m"
+        tts!!.speak(time, TextToSpeech.QUEUE_FLUSH,null,"")
+    }
+
 
 
 }
